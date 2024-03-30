@@ -1,7 +1,14 @@
 {
   "name": "yunus-trail-admin-api",
   "version": "1.0.0",
+  "description": "A blog application administration api",
   "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "Md Naim Uddin",
   "license": "MIT",
   "dependencies": {
     "bcrypt": "^5.1.1",
