@@ -32,13 +32,12 @@ const userSchema = mongoose.Schema({
 // eslint-disable-next-line func-names, consistent-return
 userSchema.pre('save', async function (next) {
     try {
-        if (!this.isModified('password')) {
-            return next();
+        // Check if the password is modified or this is a new user
+        if (!this.isModified('password') || this.isNew) {
+            const salt = await bcrypt.genSalt(10);
+            const hashPassword = await bcrypt.hash(this.password, salt);
+            this.password = hashPassword;
         }
-
-        const salt = await bcrypt.genSalt(10);
-        const hashPassword = await bcrypt.hash(this.password, salt);
-        this.password = hashPassword;
         next();
     } catch (error) {
         next(error);
