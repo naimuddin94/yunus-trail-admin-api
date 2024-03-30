@@ -27,9 +27,10 @@ const userLoginFn = () => async (req, res, next) => {
         const userResponse = {
             // eslint-disable-next-line no-underscore-dangle
             id: user._id,
-            name: `${user.first_name} ${user.last_name}`,
+            name: user.name,
             email: user.email,
             role: user.role,
+            image: user.image,
         };
 
         // Create authentication cookie
