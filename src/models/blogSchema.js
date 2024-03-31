@@ -5,16 +5,18 @@ const blogSchema = mongoose.Schema({
         type: String,
         required: true,
     },
-    features: {
+    image: {
         type: String,
-        required: true,
+    },
+    video: {
+        type: String,
+    },
+    audio: {
+        type: String,
     },
     description: {
         type: String,
         required: true,
-    },
-    audio: {
-        type: String,
     },
     category: {
         type: mongoose.Schema.Types.ObjectId,

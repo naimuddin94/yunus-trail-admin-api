@@ -15,6 +15,7 @@ const globalErrorHandler = require('./lib/globalErrorHandler');
 const userRouter = require('./routes/userRoute');
 const categoryRouter = require('./routes/categoryRoute');
 const authRouter = require('./routes/authRoute');
+const blogRouter = require('./routes/blogRoute');
 
 const app = express();
 
@@ -31,6 +32,7 @@ app.use(cookieParser());
 // routes
 app.use('/api/v1/users', userRouter);
 app.use('/api/v1/categories', categoryRouter);
+app.use('/api/v1/blogs', blogRouter);
 app.use('/api/v1/auth', authRouter);
 
 // testing route
